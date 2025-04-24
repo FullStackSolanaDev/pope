@@ -63,6 +63,15 @@ header p {
   width: 50vw;
   max-width: 500px;
   animation: popeAnimation 6s ease-in-out infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#pope-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain; /* Zorgt ervoor dat de afbeelding proportioneel blijft */
 }
 
 @keyframes popeAnimation {
