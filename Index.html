@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BlackPope Meme Coin</title>
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header" id="top">
+      <h1>Welcome to the Official $BLACKPOPE Website ✝️</h1>
+      <p>This is the ONLY official website for all updates and announcements regarding the Peter Turkson project $BLACKPOPE ✝️</p>
+      <p><em>Foretold by secret societies. Fulfilled through prophecy. The Illuminati always knew 👁</em></p>
+    </header>
+
+    <section class="image-section">
+      <div id="pope-image-container">
+        <img src="pope.png" alt="Black Pope" id="pope-image" />
+      </div>
+    </section>
+
+    <section class="vote-section">
+      <h2>Vote Now!</h2>
+      <div class="vote-buttons">
+        <button id="yesBtn" onclick="handleVote('yes')">YES</button>
+        <button id="noBtn" onclick="handleVote('no')">NO</button>
+      </div>
+      <div id="progress-bar-container">
+        <div id="progress-bar">
+          <span id="progress-label">✝️ 0%</span>
+        </div>
+      </div>
+      <div id="response"></div>
+    </section>
+
+    <footer>
+      <div class="social-links">
+        <a href="https://www.tiktok.com/@blackpopesol" target="_blank">🎵 TikTok</a>
+        <a href="https://x.com/blackpopesolana" target="_blank">🐦 Twitter</a>
+        <a href="https://www.blackpope.fun" target="_blank">🌐 Website</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Pop-up div -->
+  <div id="popup" class="popup" style="display: none;">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <p id="popup-message"></p>
+    </div>
+  </div>
+
+  <script>
+    function handleVote(vote) {
+      const progressBar = document.getElementById('progress-bar');
+      const progressLabel = document.getElementById('progress-label');
+      const responseDiv = document.getElementById('response');
+      const popup = document.getElementById('popup');
+      const popupMessage = document.getElementById('popup-message');
+  
+      let progressValue;
+      let emoji;
+      let message;
+      let popupText;
+  
+      if (vote === 'yes') {
+        progressValue = 100;
+        emoji = '✝️';
+        message = "You voted YES! ⚡ You were the decisive vote!";
+        popupText = `
+          You were the decisive vote! ✝️<br>
+          The Pope is eternally grateful 🙏<br>
+          You just secured your spot in the Vatican metaverse ⛪🚀
+        `;
+      } else {
+        progressValue = 88;
+        emoji = '❌';
+        message = "You voted NO! ⚡ The Pope is not pleased...";
+        popupText = `
+          You voted NO! ⚡<br>
+          The Pope is displeased! 😱<br>
+          You might be excommunicated from the blockchain ⛓️✂️
+        `;
+      }
+  
+      progressBar.style.width = progressValue + '%';
+      progressLabel.innerHTML = `${emoji} ${progressValue}%`;
+  
+      setTimeout(() => {
+        responseDiv.innerHTML = `<p>${message}</p>`;
+        responseDiv.style.color = vote === 'yes' ? "green" : "red";
+        popupMessage.innerHTML = popupText;
+        popup.style.display = 'flex';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 1000);
+    }
+  
+    function closePopup() {
+      const popup = document.getElementById('popup');
+      popup.style.display = 'none';
+    }
+  </script>  
+</body>
+</html>
